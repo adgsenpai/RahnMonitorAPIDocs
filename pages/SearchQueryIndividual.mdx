@@ -1,0 +1,273 @@
+---
+title: Rahn Monitor API | Query Individual
+---
+
+import { Tab, Tabs } from "nextra-theme-docs";
+
+# Query Individual
+
+This endpoint returns a JSON object containing information about Entites queried from the Rahn Monitor API.
+
+
+```
+https://api.rahnmonitor.co.za/searchqueryindividual
+```
+
+## Path Parameters
+
+| Parameter |  Type  | Description                                                                                            | Required? | Default |
+| :-------: | :----: | ------------------------------------------------------------------------------------------------------ | :-------: | :-----: |
+|  apikey     | string | API Key for RahnMonitor |    Yes    |         |
+|  IndividualID | string |  Individual ID consists of a hash in the Rahn Monitor Database System |    No    |         |
+| Name | string | Name of the Individual | No | |
+| IDNumber | string | ID Number of the Individual | No | |
+| DOB | string | Date of Birth of the Individual | No | |
+| City | string | City of the Individual | No | |
+| State | string | State of the Individual | No | |
+| Country | string | Country of the Individual | No | |
+
+
+## Request Samples
+
+<Tabs items={["JavaScript", "Python","Curl"]}>
+  <Tab>
+    <>
+        ```js
+        import axios from "axios";
+        
+        const url = "https://api.rahnmonitor.co.za/searchqueryindividual?apikey=MYAPIKEY";
+        const data = async () => {
+            try {
+                const { data } = await axios.get(url, 
+                    {
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                    }
+                );
+                return data;
+            } catch (err) {
+                throw new Error(err.message);
+            }
+        };
+
+        console.log(data);
+        ```
+    </>
+
+  </Tab>
+  <Tab>
+    <>
+        ```python
+        import requests
+        
+        url = "https://api.rahnmonitor.co.za/searchqueryindividual?apikey=MYAPIKEY"
+        response = requests.get(url)
+        data = response.json()
+
+        print(data)
+        ```
+    </>
+  </Tab>
+  <Tab>
+    <>
+        ```bash
+        curl -X 'GET' \
+        'https://api.rahnmonitor.co.za/searchqueryindividual?apikey=MYAPIKEY' \
+        -H 'accept: application/json'
+        ```
+    </>
+  </Tab>
+</Tabs>
+
+## Response Schema
+
+<Tabs items={["200 OK", "404 Not Found", "500 Internal Server Error"]}>
+  <Tab>
+  **MIME Type:** `application/json`
+  ```json copy=false
+  {
+  "results": [
+    {
+      "IndividualID": "7F094DCB-5CBE-4B70-9E7D-DC49EBD99428",
+      "FirstName": "Ludwig ",
+      "SecondName": "Winkler",
+      "ThirdName": " ",
+      "FourthName": "",
+      "FifthName": "",
+      "LastName": "Winkler",
+      "FullName": "Ludwig Winkler",
+      "ListedON": "",
+      "ReferenceNumber": "Q1875189",
+      "SortKey": "",
+      "SortKeyLastMod": "",
+      "UNListType": "Wikidata Politically Exposed Persons,Wikidata Entities of Interest",
+      "Comments": "",
+      "VersionNum": "1",
+      "DateInserted": "",
+      "TypeOfDate": "",
+      "Year": "",
+      "Date": "",
+      "BirthPlaceCity": "",
+      "CityOfBirth": "",
+      "BirthPlaceStateProvince": "",
+      "StateProvince": "",
+      "BirthPlaceCountry": "",
+      "PlaceOfBirth": "Lichtenau Im Waldviertel",
+      "Country": "Austria",
+      "Passport": "",
+      "NameOriginalScript": "Ludwig Winkler Politiker Ludwig Winkler",
+      "Note": "",
+      "Note1": "",
+      "Note2": "Austrian Politician",
+      "Note3": "",
+      "City": "",
+      "Title": "",
+      "Gender": "male",
+      "DateOfBirth": "1937-11-08",
+      "DateOfIssue": "",
+      "IDNumber": "",
+      "Designation": "Policitally Exposed Person",
+      "Nationality": "Austria",
+      "SubmittedBy": "",
+      "FromYear": "",
+      "ToYear": "",
+      "CountryOfBirth": "",
+      "CityOfIssue": "",
+      "Street": "",
+      "BirthPlaceNote": "",
+      "CountryOfIssue": "",
+      "image": "",
+      "AdverseMedia": "",
+      "id": "Q1875189",
+      "schema": "Person",
+      "referents": "",
+      "datasets": "Wikidata Politically Exposed Persons,Wikidata Entities of Interest",
+      "first_seen": "2022-12-30T18:28:00",
+      "last_seen": "2023-02-27T18:13:43",
+      "caption": "Ludwig Winkler",
+      "target": "True",
+      "properties.position": "Member of the Landtag of Lower Austria",
+      "properties.alias": "Ludwig Winkler (Politiker) Ludwig Winkler",
+      "properties.gender": "male",
+      "properties.notes": "Austrian Politician",
+      "properties.birthDate": "1937-11-08",
+      "properties.name": "Ludwig Winkler",
+      "properties.topics": "Policitally Exposed Person",
+      "properties.country": "Austria",
+      "properties.addressEntity": "",
+      "properties.sanctions": "",
+      "properties.registrationNumber": "",
+      "properties.secondName": "",
+      "properties.createdAt": "",
+      "properties.modifiedAt": "2023-02-14",
+      "properties.firstName": "Ludwig Winkler",
+      "properties.birthPlace": "Lichtenau Im Waldviertel",
+      "properties.middleName": "",
+      "properties.identification": "",
+      "properties.nationality": "Austria",
+      "properties.idNumber": "",
+      "properties.lastName": "Winkler",
+      "properties.sourceUrl": "",
+      "properties.unknownLinkTo": "",
+      "properties.unknownLinkFrom": "",
+      "properties.passportNumber": "",
+      "properties.fatherName": "",
+      "properties.familyPerson": "",
+      "properties.weakAlias": "",
+      "properties.title": "",
+      "properties.email": "",
+      "properties.phone": "",
+      "properties.membershipMember": "",
+      "properties.website": "",
+      "properties.sector": "",
+      "properties.keywords": "State government",
+      "properties.imoNumber": "",
+      "properties.mmsi": "",
+      "properties.deathDate": "",
+      "properties.directorshipDirector": "",
+      "properties.legalForm": "",
+      "properties.ethnicity": "",
+      "properties.jurisdiction": "",
+      "properties.incorporationDate": "",
+      "properties.program": "",
+      "properties.innCode": "",
+      "properties.address": "",
+      "properties.ogrnCode": "",
+      "properties.status": "",
+      "properties.classification": "",
+      "properties.ownershipAsset": "",
+      "properties.kppCode": "",
+      "properties.ownershipOwner": "",
+      "properties.taxNumber": "",
+      "properties.associates": "",
+      "properties.vatCode": "",
+      "properties.previousName": "",
+      "properties.securities": "",
+      "properties.agencyClient": "",
+      "properties.associations": "",
+      "properties.familyRelative": "",
+      "properties.agentRepresentation": "",
+      "properties.opencorporatesUrl": "",
+      "properties.leiCode": "",
+      "properties.swiftBic": "",
+      "properties.serialNumber": "",
+      "properties.model": "",
+      "properties.owner": "",
+      "properties.buildDate": "",
+      "properties.motherName": "",
+      "properties.flag": "",
+      "properties.callSign": "",
+      "properties.type": "",
+      "properties.publisher": "",
+      "properties.icijId": "",
+      "properties.directorshipOrganization": "",
+      "properties.grossRegisteredTonnage": "",
+      "properties.tonnage": "",
+      "properties.pastFlags": "",
+      "properties.dunsCode": "",
+      "properties.membershipOrganization": "",
+      "properties.cryptoWallets": "",
+      "properties.ownedVehicles": "",
+      "properties.bikCode": "",
+      "properties.summary": "",
+      "properties.employers": "",
+      "properties.dissolutionDate": "",
+      "properties.employees": "",
+      "properties.wikidataId": "Q1875189",
+      "properties.education": "",
+      "properties.religion": "",
+      "properties.issuer": "",
+      "properties.issueDate": "",
+      "properties.isin": "",
+      "properties.maturityDate": "",
+      "properties.amount": "",
+      "properties.currency": "",
+      "properties.ticker": "",
+      "properties.publicKey": "",
+      "properties.amountUsd": "",
+      "properties.balance": ""
+    }
+  ]
+  }
+
+  
+ 
+  ```
+  </Tab>
+  <Tab>
+  **MIME Type:** `application/json`
+  ```json copy=false
+  {
+  "status": "failed",
+  "message": "Invalid API Access Token you can get API access by contacting info@rahnmonitor.co.za to order API Access"
+  }
+  ```
+  </Tab>
+  <Tab>
+  **MIME Type:** `application/json`
+  ```json copy=false
+  Internal Server Error
+  ```  
+  </Tab>
+</Tabs>

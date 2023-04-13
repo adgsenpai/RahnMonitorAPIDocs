@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shuding/nextra-docs-template.git"
+    "url": "git+https://rahnmonitor.co.za"
   },
-  "author": "Shu Ding <g@shud.in>",
+  "author": "ADGSTUDIOS <adg@adgstudios.co.za>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shuding/nextra-docs-template/issues"
+    "url": "https://rahnmonitor.co.za"
   },
-  "homepage": "https://github.com/shuding/nextra-docs-template#readme",
+  "homepage": "https://rahnmonitor.co.za",
   "dependencies": {
     "next": "^13.0.6",
     "nextra": "latest",

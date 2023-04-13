@@ -1,15 +1,17 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
-  "about": {
-    "title": "About",
-    "type": "page"
-  },
-  "contact": {
-    "title": "Contact ↗",
+  "index": "General Information about the API",
+  "SearchQueryEntity": "Search Query Entity",
+  "SearchQueryIndividual": "Search Query Individual",  
+  "Playground": {
+    "title": "Playground ↗",
     "type": "page",
-    "href": "https://twitter.com/shuding_",
+    "href": "https://api.rahnmonitor.co.za/docs",
     "newWindow": true
-  }
+  },  
+  "contact": {
+    "title": "Rahn Monitor Application ↗",
+    "type": "page",
+    "href": "https://rahnmonitor.co.za",
+    "newWindow": true
+  }   
 }

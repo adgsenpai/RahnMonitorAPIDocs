@@ -1,0 +1,239 @@
+---
+title: Rahn Monitor API | Query Entity 
+---
+
+import { Tab, Tabs } from "nextra-theme-docs";
+
+# Query Entity
+
+This endpoint returns a JSON object containing information about Entites queried from the Rahn Monitor API.
+
+
+```
+https://api.rahnmonitor.co.za/searchqueryentity
+```
+
+## Path Parameters
+
+| Parameter |  Type  | Description                                                                                            | Required? | Default |
+| :-------: | :----: | ------------------------------------------------------------------------------------------------------ | :-------: | :-----: |
+|  apikey     | string | API Key for RahnMonitor |    Yes    |         |
+|  EntityID | string | Entity ID consists of a hash in the Rahn Monitor Database System |    No    |         |
+|  EntityName | string | Entity Name|    No    |         |
+|  City | string | City|    No    |         |
+|  State | string | State|    No    |         |
+|  Country | string | Country|    No    |         |
+
+## Request Samples
+
+<Tabs items={["JavaScript", "Python","Curl"]}>
+  <Tab>
+    <>
+        ```js
+        import axios from "axios";
+        
+        const url = "https://api.rahnmonitor.co.za/searchqueryentity?apikey=MYAPIKEY";
+        const data = async () => {
+            try {
+                const { data } = await axios.get(url, 
+                    {
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                    }
+                );
+                return data;
+            } catch (err) {
+                throw new Error(err.message);
+            }
+        };
+
+        console.log(data);
+        ```
+    </>
+
+  </Tab>
+  <Tab>
+    <>
+        ```python
+        import requests
+        
+        url = "https://api.rahnmonitor.co.za/searchqueryentity?apikey=MYAPIKEY"
+        response = requests.get(url)
+        data = response.json()
+
+        print(data)
+        ```
+    </>
+  </Tab>
+  <Tab>
+    <>
+        ```bash
+        curl -X 'GET' \
+        'https://api.rahnmonitor.co.za/searchqueryentity?apikey=MYAPIKEY' \
+        -H 'accept: application/json'
+        ```
+    </>
+  </Tab>
+</Tabs>
+
+## Response Schema
+
+<Tabs items={["200 OK", "404 Not Found", "500 Internal Server Error"]}>
+  <Tab>
+  **MIME Type:** `application/json`
+  ```json copy=false
+  {
+  "results": [
+    {
+      "EntityID": "0F7E2BBB-84CE-45CA-BC64-E508961185E3",
+      "EntityName": "Ykayf",
+      "ReferenceNumber": "ofac 15617",
+      "SubmittedOn": "2013-05-16",
+      "ListedON": "",
+      "SortKey": "",
+      "SortKeyLastMod": "",
+      "UNListType": "US OFAC Specially Designated Nationals (SDN) List,US Trade Consolidated Screening List (CSL)",
+      "Comments": "Linked To: Syrian Arab Airlines",
+      "VersionNum": "1",
+      "IsDeleted": "false",
+      "DateInserted": "",
+      "StateProvince": "",
+      "Address": "",
+      "Country": "",
+      "ZipCode": "",
+      "NameOriginalScript": "",
+      "Note": "",
+      "City": "",
+      "Street": "",
+      "AdverseMedia": "",
+      "id": "NK-fAdAX2Ujx9nhck4jSaDMFf",
+      "schema": "Airplane",
+      "referents": "ofac-15617",
+      "datasets": "US OFAC Specially Designated Nationals (SDN) List,US Trade Consolidated Screening List (CSL)",
+      "first_seen": "2021-09-30T11:39:21",
+      "last_seen": "2023-02-08T06:39:44",
+      "caption": "YkAyf",
+      "target": "True",
+      "properties.position": "",
+      "properties.alias": "",
+      "properties.gender": "",
+      "properties.notes": "Linked To: Syrian Arab Airlines",
+      "properties.birthDate": "",
+      "properties.name": "YkAyf",
+      "properties.topics": "Sanction",
+      "properties.country": "",
+      "properties.addressEntity": "",
+      "properties.sanctions": "id: trade-csl-0804fb671718625b5e4d98ffc15404ff1fe2dcb3, schema: Sanction, properties: entity: NK-fAdAX2Ujx9nhck4jSaDMFf, program: SDGT, IRGC, IFSR, SYRIA, sourceUrl: https://home.treasury.gov/policy-issues/ficial-sanctions/specially-designated-nationals-and-blocked-persons-list-sdn-human-readable-lists, country: us, authority: Specially Designated Nationals (SDN) - Treasury Department, referents: , datasets: us_trade_csl, first_seen: 2021-10-03T08:46:36, last_seen: 2023-02-08T06:39:44, caption: SDGT, target: False, id: ofac-562e433824069d71a25bfc254de9e769035aaf1c, schema: Sanction, properties: sourceUrl: https://www.treasury.gov/resource-center/sanctions/Pages/default.aspx, summary: SDGT, IRGC, IFSR, SYRIA, listingDate: 2013-05-16, reason: Executive Order 13582 (Syria), Executive Order 13224 (Terrorism), program: SDN List, Program, Block, entity: NK-fAdAX2Ujx9nhck4jSaDMFf, country: us, authority: Office of Foreign Assets Control (OFAC), referents: , datasets: us_ofac_sdn, first_seen: 2021-09-30T11:39:21, last_seen: 2023-02-08T06:31:14, caption: SDN List, target: False",
+      "properties.registrationNumber": "YK-AYF",
+      "properties.secondName": "",
+      "properties.createdAt": "2013-05-16",
+      "properties.modifiedAt": "",
+      "properties.firstName": "",
+      "properties.birthPlace": "",
+      "properties.middleName": "",
+      "properties.identification": "",
+      "properties.nationality": "",
+      "properties.idNumber": "",
+      "properties.lastName": "",
+      "properties.sourceUrl": "https://sanctionssearch.ofac.treas.gov/Details.aspx?id=15617",
+      "properties.unknownLinkTo": "",
+      "properties.unknownLinkFrom": "",
+      "properties.passportNumber": "",
+      "properties.fatherName": "",
+      "properties.familyPerson": "",
+      "properties.weakAlias": "",
+      "properties.title": "",
+      "properties.email": "",
+      "properties.phone": "",
+      "properties.membershipMember": "",
+      "properties.website": "",
+      "properties.sector": "",
+      "properties.keywords": "",
+      "properties.imoNumber": "",
+      "properties.mmsi": "",
+      "properties.deathDate": "",
+      "properties.directorshipDirector": "",
+      "properties.legalForm": "",
+      "properties.ethnicity": "",
+      "properties.jurisdiction": "",
+      "properties.incorporationDate": "",
+      "properties.program": "",
+      "properties.innCode": "",
+      "properties.address": "",
+      "properties.ogrnCode": "",
+      "properties.status": "",
+      "properties.classification": "",
+      "properties.ownershipAsset": "id: ofac-da738e58ba1c32af5c5b31252262a415fb39b119, schema: Ownership, properties: owner: id: NK-nKeChvrHv8EX89KPe5kqbS, schema: Company, properties: topics: sanction, name: SYRIAN ARAB AIRLINES, SAA, Syrian Air, Syrianair, Líneas Aéreas Árabes Sirias, Syrian Arab Airlines, country: cy, sy, addressEntity: addr-49bddc81ea07b063d66c70434ec3a8c20bc6765d, cy-address-seq-97096, addr-47a4364986eca800c76a8839361d586206d9c3fd, NK-PUwWsW7FfXwVB8mCSeVCeq, addr-95121fb4baf198fa3145e53359393f7a58f1e844, createdAt: 2012-07-24, legalForm: ????dap? ?ta??e?a, Public, alias: SAA, Syrian Air, ????? ??????? ??????? ???????\\u200e and ???????, SYRIANAIR, SYRIAN AIR, SyrianAir, sourceUrl: https://sanctionssearch.ofac.treas.gov/Details.aspx?id=13440, notes: Date of listing: 24.7.2012, Subject to Secondary Sanctions, Compagnie publique contrôlée par le régime auquel elle apporte un soutien ficier., Public company controlled by the Syrian regime. Provides ficial support for the regime., Tel: +963 11 2240774, modifiedAt: 2022-05-13, registrationNumber: AE1818, O1818, opencorporatesUrl: https://opencorporates.com/companies/cy/AE1818, status: ???e??aµµ???, website: http://Syriaair.com/, phone: +963112240774, incorporationDate: 2003-10-06, referents: ofac-c0e702663111315abd391bc5490b6f7c09040332, trade-csl-aec481dece640417fdc8cbb752d70f920d10e4ef, ofac-3f81d99e22550783a3fda554e6e48dd49c322782, trade-csl-38d357a5c108005ba53d4e603d9bab577ccf472f, ca-sema-syria-1-49, trade-csl-2f9ff837ca7a640b9d6e2945625a492a7a296463, NK-UzkkmrWKkGyGPKQoUD8tgc, ofac-7865e7147d3abd369cf468089afcaad714e61b77, trade-csl-f1f339f8e141212b691eb3818a9ffa70b83d4864, trade-csl-abd438bf4d298d51b2817c2375a02ec241353aef, oc-companies-cy-ae1818, ch-seco-12734, trade-csl-c573cb1051c9fa0df3787b5da040909d4480fc5b, trade-csl-52c25db9ea98178816ec65a056e019b8513eeb25, ofac-eb8f9fe07ae012c77fabda71240181559fa3db25, ofac-655e862c6385e880d81edf2e117642179459ca2b, ofac-029ea35a637cae1352a585e3bdf510068648b213, trade-csl-8b140f443b613a7f2a02384c598581eed66c60e8, ofac-012f4f9fbfdf7c8fd472c1a866d4242cf858a4a7, NK-BFUfSdhJ6Uagjg37V3GCkg, ofac-05def61fc2948f1f5f909b604b0bcb875fc866ab, trade-csl-faaa5dacbb2f2940784103a2378b41402e333d4f, ofac-ecd0448a7d93d7a421d20f778f84beb67b9bed42, ofac-47f09945e2a777706a5649908eaa9d5abded1ffa, ofac-4f57242d42dcba01392e02fde08fcbfa221ea710, trade-csl-6011cdf7f06f3758b02d7efa375bb84d87133a3a, trade-csl-5bd867a8172ecc3869681f7d6d997874f682610d, NK-XCcviV9mpqAFWzfYc7DJXH, NK-bfpZas5vfyNdk8hctcysie, NK-KxPcu8eHgh8o6uwbsGUnGW, trade-csl-0d14ac15d48378462450d2ffa71265573634e33b, ofac-edc73ca5050a7eb644a6843f4aecbee7bc26e78e, ofac-1f9a987a122d17ac3fe8456af927d7507a3899d3, trade-csl-c9a9ac31e66d217093ba9dff693da4ad4c299ec5, NK-U6f8LsvbwUfdgtbz6RU7sg, trade-csl-fba4f486412e7739db3215e79ecc2e1f982be746, NK-LpUStpFpGkQEMeFetnHHDr, trade-csl-e963f27052223b898e1e088c639270527229b14a, NK-7kPXgpuY4QUgLFtmnj4zzg, NK-FX8WDhjk4N6NV7A6vFopmu, ofac-026d9b01f3f02ed2062623bc6461df8e06911fd5, NK-DzpBHPANXLzKCPMzWiYdSH, trade-csl-700a005c601efd333ea75680ef87ce65483e7eba, NK-XNsNkPqqQFkaPhRAUhFaYq, ofac-d91d8af9063c89a5f0f4626d39e2989bd0017cda, ofac-0fbb81e65ad20b16bdc0f29663be84855b8b3ba3, trade-csl-f2d79b8a4aa1d7bdde2b2e5f7bdf1a2c6929eb96, NK-VLqy3fH7R8jLsH2EGprcMr, NK-AXbZhRrqWY2GVbsJ3kARW5, ca-sema-1-49-sy-syrian-arab-airlines, NK-DXjeJyxkZqF4gVMcCJHfa9, trade-csl-83d900ce1a0b93e671f3b13ed0cfa2e076330263, ofac-31f136ad38b1104d39805df53703b5ed9f06089e, NK-VK3xt5seXcEZLLenq6vcJh, NK-EKWiutbpekVUBqnnBfHLUb, NK-AvuUedJYhJHhVq4J2Pp2xm, trade-csl-a62f33d5f291b3859f704e10252b40356c8e9f7b, fr-ga-2388, trade-csl-3f502023924ea044b4b009a2e6be7828a4054863, trade-csl-1a8d1673a83996d6aab6e6bee56517f3b956f06c, trade-csl-1bdd519d8767ccd9310d7bdba3bbf0eb2f77f42b, trade-csl-0333f26f193d86cd0120d149872fa098ff6e7f71, NK-YoaGGBWWGXoUTJu47V5eX5, NK-KmtxNKQvCG6T7PaKChB49b, trade-csl-590891f0ae8bd22f694d59c0483062617fb65d15, trade-csl-f55675ecb1e733ecd1ba55195f325a611e2c2be3, ofac-926f639752d01340e5d50697f1edbc5313835bda, NK-KsGSBGFeVuNVfM35P4wnoc, eu-fsf-eu-2861-78, trade-csl-0feb83e66466d9df6a6c3d73cfe24acdb67eda6a, ofac-ffff2af993015a9bbbfec20d0aa6af974159c7f0, ofac-13440, ofac-8ee14186a5b520d72a2610a342e44c2d10170eb4, trade-csl-68c9e144d371aed1fc343de352dfe187debdc3f0, trade-csl-914c2d34223a79f75a3dc1b21cc42387702781c1, ofac-da6f6b53c729d7820c164ea13f45aa8c0d8f00f5, trade-csl-2e4cfd42133205f5cfadae667c75c65eb6d4de7d, trade-csl-c4b73c1c5ac52a3e9bc1ce684ec12038e6eb88b9, ofac-a87bb6c6c4f9a11fe0e3512e4b211c2fd37946bd, NK-UKL29ksKYtVifwWbm7iBbb, ofac-5ac0916c7e87f8501af4c64c4ab0971b7483eac2, ofac-ead1942e0ec95e453757f9ef293604bec89cb523, ofac-839e2f034c7789fb142547a07e256461f550382e, trade-csl-e68a274d870c4d07733187fce11a1dc35d3068ce, ofac-1d36ccda42489c9abedb87c1cebac75b4cead3b1, NK-UNMxq2AaWChBGnEETMjjJU, ofac-6bc6846254fc909e7ed191c0c48f310959d4d2db, NK-aVnnvb2bVrRZfdzsFHfToc, NK-2S3jrQ9B45vAmPYGt6NsCe, trade-csl-e9741eb92608704f27c675d549d6afd6f8c06e17, NK-mf52Q7m8bjS94D8BdcFj2v, ofac-13569d08813bb56af40d7a79e4ba6447eeeff6e4, ofac-3f1058383acf940486c31fef7677c5757130b22e, trade-csl-f8b2e81bb6f5e8a0e14be79e334d07d62f5b702b, ofac-26a347361a1e11cb5224892f1ef2cb28e07a8c71, ofac-380be50c90f8859c7781c062f8fa32337a872cea, NK-mkBkj8HMYDiEMX6UsqrnET, ofac-cdb383e47d7e21d674c971b8ab1ada2644869882, NK-RfhXcjwvmhnSispghFH7CH, trade-csl-fec75a63eb72d92927986e97955fb665f126ba3c, trade-csl-03d3f1163d040ee7ebc65b71c10bb1700f730707, trade-csl-c136abd634a78345a1243df6bdbfa1f215a766ed, ofac-6478da13f746dc5898b37ebaef771c416912ff83, trade-csl-38204047e04619f2eb29b9585713056cd8eb33fa, ofac-b2019425f2a42bb80a59ccc089365921a34e8621, NK-grNCbGbEqwPVkGBrthHkWH, NK-Q3utSxZNFTvRQYnBavgZGA, ofac-5c95995a1683cebbe98a7e972d6c4df1d7ac213a, gb-hmt-12734, ofac-304073a861108e0367598516e197cff2d7be99f4, ofac-8aaa748332ec34272099d90e3c28bc76e785e8c4, ofac-14ba9644fd4f637f4d968705c25aab152ac437a2, trade-csl-b7fac48478c5dcc6fb0e522951e9681463ca66e8, datasets: us_trade_csl, eu_fsf, be_fod_sanctions, fr_tresor_gels_avoir, us_ofac_sdn, gb_hmt_sanctions, ch_seco_sanctions, cy_companies, ca_dfatd_sema_sanctions, first_seen: 2021-07-26T11:55:45, last_seen: 2023-02-08T06:39:44, caption: SAA, target: True, asset: NK-fAdAX2Ujx9nhck4jSaDMFf, role: Owned or Controlled By, referents: , datasets: us_ofac_sdn, first_seen: 2021-09-30T11:39:21, last_seen: 2023-02-08T06:31:14, caption: Ownership, target: False",
+      "properties.kppCode": "",
+      "properties.ownershipOwner": "",
+      "properties.taxNumber": "",
+      "properties.associates": "",
+      "properties.vatCode": "",
+      "properties.previousName": "",
+      "properties.securities": "",
+      "properties.agencyClient": "",
+      "properties.associations": "",
+      "properties.familyRelative": "",
+      "properties.agentRepresentation": "",
+      "properties.opencorporatesUrl": "",
+      "properties.leiCode": "",
+      "properties.swiftBic": "",
+      "properties.serialNumber": "66190, 6349",
+      "properties.model": "Tu-134B-3",
+      "properties.owner": "id: NK-nKeChvrHv8EX89KPe5kqbS, schema: Company, properties: topics: sanction, name: SYRIAN ARAB AIRLINES, SAA, Syrian Air, Syrianair, Líneas Aéreas Árabes Sirias, Syrian Arab Airlines, country: cy, sy, addressEntity: addr-49bddc81ea07b063d66c70434ec3a8c20bc6765d, cy-address-seq-97096, addr-47a4364986eca800c76a8839361d586206d9c3fd, NK-PUwWsW7FfXwVB8mCSeVCeq, addr-95121fb4baf198fa3145e53359393f7a58f1e844, createdAt: 2012-07-24, legalForm: ????dap? ?ta??e?a, Public, alias: SAA, Syrian Air, ????? ??????? ??????? ???????\\u200e and ???????, SYRIANAIR, SYRIAN AIR, SyrianAir, sourceUrl: https://sanctionssearch.ofac.treas.gov/Details.aspx?id=13440, notes: Date of listing: 24.7.2012, Subject to Secondary Sanctions, Compagnie publique contrôlée par le régime auquel elle apporte un soutien ficier., Public company controlled by the Syrian regime. Provides ficial support for the regime., Tel: +963 11 2240774, modifiedAt: 2022-05-13, registrationNumber: AE1818, O1818, opencorporatesUrl: https://opencorporates.com/companies/cy/AE1818, status: ???e??aµµ???, website: http://Syriaair.com/, phone: +963112240774, incorporationDate: 2003-10-06, referents: ofac-c0e702663111315abd391bc5490b6f7c09040332, trade-csl-aec481dece640417fdc8cbb752d70f920d10e4ef, ofac-3f81d99e22550783a3fda554e6e48dd49c322782, trade-csl-38d357a5c108005ba53d4e603d9bab577ccf472f, ca-sema-syria-1-49, trade-csl-2f9ff837ca7a640b9d6e2945625a492a7a296463, NK-UzkkmrWKkGyGPKQoUD8tgc, ofac-7865e7147d3abd369cf468089afcaad714e61b77, trade-csl-f1f339f8e141212b691eb3818a9ffa70b83d4864, trade-csl-abd438bf4d298d51b2817c2375a02ec241353aef, oc-companies-cy-ae1818, ch-seco-12734, trade-csl-c573cb1051c9fa0df3787b5da040909d4480fc5b, trade-csl-52c25db9ea98178816ec65a056e019b8513eeb25, ofac-eb8f9fe07ae012c77fabda71240181559fa3db25, ofac-655e862c6385e880d81edf2e117642179459ca2b, ofac-029ea35a637cae1352a585e3bdf510068648b213, trade-csl-8b140f443b613a7f2a02384c598581eed66c60e8, ofac-012f4f9fbfdf7c8fd472c1a866d4242cf858a4a7, NK-BFUfSdhJ6Uagjg37V3GCkg, ofac-05def61fc2948f1f5f909b604b0bcb875fc866ab, trade-csl-faaa5dacbb2f2940784103a2378b41402e333d4f, ofac-ecd0448a7d93d7a421d20f778f84beb67b9bed42, ofac-47f09945e2a777706a5649908eaa9d5abded1ffa, ofac-4f57242d42dcba01392e02fde08fcbfa221ea710, trade-csl-6011cdf7f06f3758b02d7efa375bb84d87133a3a, trade-csl-5bd867a8172ecc3869681f7d6d997874f682610d, NK-XCcviV9mpqAFWzfYc7DJXH, NK-bfpZas5vfyNdk8hctcysie, NK-KxPcu8eHgh8o6uwbsGUnGW, trade-csl-0d14ac15d48378462450d2ffa71265573634e33b, ofac-edc73ca5050a7eb644a6843f4aecbee7bc26e78e, ofac-1f9a987a122d17ac3fe8456af927d7507a3899d3, trade-csl-c9a9ac31e66d217093ba9dff693da4ad4c299ec5, NK-U6f8LsvbwUfdgtbz6RU7sg, trade-csl-fba4f486412e7739db3215e79ecc2e1f982be746, NK-LpUStpFpGkQEMeFetnHHDr, trade-csl-e963f27052223b898e1e088c639270527229b14a, NK-7kPXgpuY4QUgLFtmnj4zzg, NK-FX8WDhjk4N6NV7A6vFopmu, ofac-026d9b01f3f02ed2062623bc6461df8e06911fd5, NK-DzpBHPANXLzKCPMzWiYdSH, trade-csl-700a005c601efd333ea75680ef87ce65483e7eba, NK-XNsNkPqqQFkaPhRAUhFaYq, ofac-d91d8af9063c89a5f0f4626d39e2989bd0017cda, ofac-0fbb81e65ad20b16bdc0f29663be84855b8b3ba3, trade-csl-f2d79b8a4aa1d7bdde2b2e5f7bdf1a2c6929eb96, NK-VLqy3fH7R8jLsH2EGprcMr, NK-AXbZhRrqWY2GVbsJ3kARW5, ca-sema-1-49-sy-syrian-arab-airlines, NK-DXjeJyxkZqF4gVMcCJHfa9, trade-csl-83d900ce1a0b93e671f3b13ed0cfa2e076330263, ofac-31f136ad38b1104d39805df53703b5ed9f06089e, NK-VK3xt5seXcEZLLenq6vcJh, NK-EKWiutbpekVUBqnnBfHLUb, NK-AvuUedJYhJHhVq4J2Pp2xm, trade-csl-a62f33d5f291b3859f704e10252b40356c8e9f7b, fr-ga-2388, trade-csl-3f502023924ea044b4b009a2e6be7828a4054863, trade-csl-1a8d1673a83996d6aab6e6bee56517f3b956f06c, trade-csl-1bdd519d8767ccd9310d7bdba3bbf0eb2f77f42b, trade-csl-0333f26f193d86cd0120d149872fa098ff6e7f71, NK-YoaGGBWWGXoUTJu47V5eX5, NK-KmtxNKQvCG6T7PaKChB49b, trade-csl-590891f0ae8bd22f694d59c0483062617fb65d15, trade-csl-f55675ecb1e733ecd1ba55195f325a611e2c2be3, ofac-926f639752d01340e5d50697f1edbc5313835bda, NK-KsGSBGFeVuNVfM35P4wnoc, eu-fsf-eu-2861-78, trade-csl-0feb83e66466d9df6a6c3d73cfe24acdb67eda6a, ofac-ffff2af993015a9bbbfec20d0aa6af974159c7f0, ofac-13440, ofac-8ee14186a5b520d72a2610a342e44c2d10170eb4, trade-csl-68c9e144d371aed1fc343de352dfe187debdc3f0, trade-csl-914c2d34223a79f75a3dc1b21cc42387702781c1, ofac-da6f6b53c729d7820c164ea13f45aa8c0d8f00f5, trade-csl-2e4cfd42133205f5cfadae667c75c65eb6d4de7d, trade-csl-c4b73c1c5ac52a3e9bc1ce684ec12038e6eb88b9, ofac-a87bb6c6c4f9a11fe0e3512e4b211c2fd37946bd, NK-UKL29ksKYtVifwWbm7iBbb, ofac-5ac0916c7e87f8501af4c64c4ab0971b7483eac2, ofac-ead1942e0ec95e453757f9ef293604bec89cb523, ofac-839e2f034c7789fb142547a07e256461f550382e, trade-csl-e68a274d870c4d07733187fce11a1dc35d3068ce, ofac-1d36ccda42489c9abedb87c1cebac75b4cead3b1, NK-UNMxq2AaWChBGnEETMjjJU, ofac-6bc6846254fc909e7ed191c0c48f310959d4d2db, NK-aVnnvb2bVrRZfdzsFHfToc, NK-2S3jrQ9B45vAmPYGt6NsCe, trade-csl-e9741eb92608704f27c675d549d6afd6f8c06e17, NK-mf52Q7m8bjS94D8BdcFj2v, ofac-13569d08813bb56af40d7a79e4ba6447eeeff6e4, ofac-3f1058383acf940486c31fef7677c5757130b22e, trade-csl-f8b2e81bb6f5e8a0e14be79e334d07d62f5b702b, ofac-26a347361a1e11cb5224892f1ef2cb28e07a8c71, ofac-380be50c90f8859c7781c062f8fa32337a872cea, NK-mkBkj8HMYDiEMX6UsqrnET, ofac-cdb383e47d7e21d674c971b8ab1ada2644869882, NK-RfhXcjwvmhnSispghFH7CH, trade-csl-fec75a63eb72d92927986e97955fb665f126ba3c, trade-csl-03d3f1163d040ee7ebc65b71c10bb1700f730707, trade-csl-c136abd634a78345a1243df6bdbfa1f215a766ed, ofac-6478da13f746dc5898b37ebaef771c416912ff83, trade-csl-38204047e04619f2eb29b9585713056cd8eb33fa, ofac-b2019425f2a42bb80a59ccc089365921a34e8621, NK-grNCbGbEqwPVkGBrthHkWH, NK-Q3utSxZNFTvRQYnBavgZGA, ofac-5c95995a1683cebbe98a7e972d6c4df1d7ac213a, gb-hmt-12734, ofac-304073a861108e0367598516e197cff2d7be99f4, ofac-8aaa748332ec34272099d90e3c28bc76e785e8c4, ofac-14ba9644fd4f637f4d968705c25aab152ac437a2, trade-csl-b7fac48478c5dcc6fb0e522951e9681463ca66e8, datasets: us_trade_csl, eu_fsf, be_fod_sanctions, fr_tresor_gels_avoir, us_ofac_sdn, gb_hmt_sanctions, ch_seco_sanctions, cy_companies, ca_dfatd_sema_sanctions, first_seen: 2021-07-26T11:55:45, last_seen: 2023-02-08T06:39:44, caption: SAA, target: True",
+      "properties.buildDate": "1984-10-10",
+      "properties.motherName": "",
+      "properties.flag": "",
+      "properties.callSign": "",
+      "properties.type": "",
+      "properties.publisher": "",
+      "properties.icijId": "",
+      "properties.directorshipOrganization": "",
+      "properties.grossRegisteredTonnage": "",
+      "properties.tonnage": "",
+      "properties.pastFlags": "",
+      "properties.dunsCode": "",
+      "properties.membershipOrganization": "",
+      "properties.cryptoWallets": "",
+      "properties.ownedVehicles": "",
+      "properties.bikCode": "",
+      "properties.summary": "",
+      "properties.employers": "",
+      "properties.dissolutionDate": "",
+      "properties.employees": "",
+      "properties.wikidataId": "",
+      "properties.education": "",
+      "properties.religion": "",
+      "properties.issuer": "",
+      "properties.issueDate": "",
+      "properties.isin": "",
+      "properties.maturityDate": "",
+      "properties.amount": "",
+      "properties.currency": "",
+      "properties.ticker": "",
+      "properties.publicKey": "",
+      "properties.amountUsd": "",
+      "properties.balance": ""
+    }
+  ]
+}
+ 
+  ```
+  </Tab>
+  <Tab>
+  **MIME Type:** `application/json`
+  ```json copy=false
+  {
+  "status": "failed",
+  "message": "Invalid API Access Token you can get API access by contacting info@rahnmonitor.co.za to order API Access"
+  }
+  ```
+  </Tab>
+  <Tab>
+  **MIME Type:** `application/json`
+  ```json copy=false
+  Internal Server Error
+  ```  
+  </Tab>
+</Tabs>
