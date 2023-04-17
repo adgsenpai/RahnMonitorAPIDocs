@@ -2,6 +2,8 @@
   "index": "General Information about the API",
   "SearchQueryEntity": "Search Query Entity",
   "SearchQueryIndividual": "Search Query Individual",  
+  "CheckBalance": "Check Balance",
+  "ComputeBatchScanCosting": "Compute Batch Scan Costing",
   "Playground": {
     "title": "Playground ↗",
     "type": "page",

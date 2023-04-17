@@ -1,0 +1,104 @@
+---
+title: Rahn Monitor API | Compute Batch Scan Costing
+---
+
+import { Tab, Tabs } from "nextra-theme-docs";
+
+# Check Balance
+
+This endpoint returns a JSON object containing the balance of the API Key/Account.
+
+
+```
+https://api.rahnmonitor.co.za/computebatchscancosting?NewRecordsToScreen=100&ExistingRecordsToScreen=100
+```
+
+## Path Parameters
+
+| Parameter |  Type  | Description                                                                                            | Required? | Default |
+| :-------: | :----: | ------------------------------------------------------------------------------------------------------ | :-------: | :-----: |
+|  NewRecordsToScreen     | int | Number of records to screen | Yes |  |
+| ExistingRecordsToScreen     | int | Number of records to screen | Yes |  |
+
+
+
+## Request Samples
+
+<Tabs items={["JavaScript", "Python","Curl"]}>
+  <Tab>
+    <>
+        ```js
+        import axios from "axios";
+        
+        const url = "https://api.rahnmonitor.co.za/computebatchscancosting?NewRecordsToScreen=100&ExistingRecordsToScreen=100?NewRecordsToScreen=100&ExistingRecordsToScreen=100";
+        const data = async () => {
+            try {
+                const { data } = await axios.get(url, 
+                    {
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                    }
+                );
+                return data;
+            } catch (err) {
+                throw new Error(err.message);
+            }
+        };
+
+        console.log(data);
+        ```
+    </>
+
+  </Tab>
+  <Tab>
+    <>
+        ```python
+        import requests
+        
+        url = "https://api.rahnmonitor.co.za/computebatchscancosting?NewRecordsToScreen=100&ExistingRecordsToScreen=100"
+        response = requests.get(url)
+        data = response.json()
+
+        print(data)
+        ```
+    </>
+  </Tab>
+  <Tab>
+    <>
+        ```bash
+        curl -X 'GET' \
+        'https://api.rahnmonitor.co.za/computebatchscancosting?NewRecordsToScreen=100&ExistingRecordsToScreen=100' \
+        -H 'accept: application/json'
+        ```
+    </>
+  </Tab>
+</Tabs>
+
+## Sample Response Schema
+
+<Tabs items={["200 OK", "404 Not Found", "500 Internal Server Error"]}>
+  <Tab>
+  **MIME Type:** `application/json`
+  ```json copy=false
+    { 
+        'cost': 1000.00
+    } 
+  ```
+  </Tab>
+  <Tab>
+  **MIME Type:** `application/json`
+  ```json copy=false
+  {
+  "status": "failed",
+  "message": "Invalid API Access Token you can get API access by contacting info@rahnmonitor.co.za to order API Access"
+  }
+  ```
+  </Tab>
+  <Tab>
+  **MIME Type:** `application/json`
+  ```json copy=false
+  Internal Server Error
+  ```  
+  </Tab>
+</Tabs>
