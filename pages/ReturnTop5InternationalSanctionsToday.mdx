@@ -1,0 +1,316 @@
+---
+title: Rahn Monitor API | Check Balance
+---
+
+import { Tab, Tabs } from "nextra-theme-docs";
+
+# Check Balance
+
+This endpoint returns a JSON object containing the top 5 international adverse media sanctions articles for today.
+
+
+```
+https://api.rahnmonitor.co.za/ReturnInternationalSanctionsTop5Today
+```
+
+## Path Parameters
+
+| Parameter |  Type  | Description                                                                                            | Required? | Default |
+| :-------: | :----: | ------------------------------------------------------------------------------------------------------ | :-------: | :-----: |
+|  apikey     | string | API Key for RahnMonitor |    Yes    |         |
+
+
+## Request Samples
+
+<Tabs items={["JavaScript", "Python","Curl"]}>
+  <Tab>
+    <>
+        ```js
+        import axios from "axios";
+        
+        const url = "https://api.rahnmonitor.co.za/ReturnInternationalSanctionsTop5Today?apikey=MYAPIKEY";
+        const data = async () => {
+            try {
+                const { data } = await axios.get(url, 
+                    {
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                    }
+                );
+                return data;
+            } catch (err) {
+                throw new Error(err.message);
+            }
+        };
+
+        console.log(data);
+        ```
+    </>
+
+  </Tab>
+  <Tab>
+    <>
+        ```python
+        import requests
+        
+        url = "https://api.rahnmonitor.co.za/ReturnInternationalSanctionsTop5Today?apikey=MYAPIKEY"
+        response = requests.get(url)
+        data = response.json()
+
+        print(data)
+        ```
+    </>
+  </Tab>
+  <Tab>
+    <>
+        ```bash
+        curl -X 'GET' \
+        'https://api.rahnmonitor.co.za/ReturnInternationalSanctionsTop5Today?apikey=MYAPIKEY' \
+        -H 'accept: application/json'
+        ```
+    </>
+  </Tab>
+</Tabs>
+
+## Sample Response Schema
+
+<Tabs items={["200 OK", "404 Not Found", "500 Internal Server Error"]}>
+  <Tab>
+  **MIME Type:** `application/json`
+  ```json copy=false
+[
+  {
+    "title": "OPINION | Abdul Minty: Our role in exposing the apartheid government’s nuclear armaments programme - News24",
+    "title_detail": {
+      "type": "text/plain",
+      "language": null,
+      "base": "",
+      "value": "OPINION | Abdul Minty: Our role in exposing the apartheid government’s nuclear armaments programme - News24"
+    },
+    "links": [
+      {
+        "rel": "alternate",
+        "type": "text/html",
+        "href": "https://news.google.com/rss/articles/CBMipQFodHRwczovL3d3dy5uZXdzMjQuY29tL25ld3MyNC9vcGluaW9ucy9jb2x1bW5pc3RzL2d1ZXN0Y29sdW1uL29waW5pb24tYWJkdWwtbWludHktb3VyLXJvbGUtaW4tZXhwb3NpbmctdGhlLWFwYXJ0aGVpZC1nb3Zlcm5tZW50cy1udWNsZWFyLWFybWFtZW50cy1wcm9ncmFtbWUtMjAyMzA0MjHSAakBaHR0cHM6Ly93d3cubmV3czI0LmNvbS9hbXAvbmV3czI0L29waW5pb25zL2NvbHVtbmlzdHMvZ3Vlc3Rjb2x1bW4vb3Bpbmlvbi1hYmR1bC1taW50eS1vdXItcm9sZS1pbi1leHBvc2luZy10aGUtYXBhcnRoZWlkLWdvdmVybm1lbnRzLW51Y2xlYXItYXJtYW1lbnRzLXByb2dyYW1tZS0yMDIzMDQyMQ?oc=5"
+      }
+    ],
+    "link": "https://news.google.com/rss/articles/CBMipQFodHRwczovL3d3dy5uZXdzMjQuY29tL25ld3MyNC9vcGluaW9ucy9jb2x1bW5pc3RzL2d1ZXN0Y29sdW1uL29waW5pb24tYWJkdWwtbWludHktb3VyLXJvbGUtaW4tZXhwb3NpbmctdGhlLWFwYXJ0aGVpZC1nb3Zlcm5tZW50cy1udWNsZWFyLWFybWFtZW50cy1wcm9ncmFtbWUtMjAyMzA0MjHSAakBaHR0cHM6Ly93d3cubmV3czI0LmNvbS9hbXAvbmV3czI0L29waW5pb25zL2NvbHVtbmlzdHMvZ3Vlc3Rjb2x1bW4vb3Bpbmlvbi1hYmR1bC1taW50eS1vdXItcm9sZS1pbi1leHBvc2luZy10aGUtYXBhcnRoZWlkLWdvdmVybm1lbnRzLW51Y2xlYXItYXJtYW1lbnRzLXByb2dyYW1tZS0yMDIzMDQyMQ?oc=5",
+    "id": "CBMipQFodHRwczovL3d3dy5uZXdzMjQuY29tL25ld3MyNC9vcGluaW9ucy9jb2x1bW5pc3RzL2d1ZXN0Y29sdW1uL29waW5pb24tYWJkdWwtbWludHktb3VyLXJvbGUtaW4tZXhwb3NpbmctdGhlLWFwYXJ0aGVpZC1nb3Zlcm5tZW50cy1udWNsZWFyLWFybWFtZW50cy1wcm9ncmFtbWUtMjAyMzA0MjHSAakBaHR0cHM6Ly93d3cubmV3czI0LmNvbS9hbXAvbmV3czI0L29waW5pb25zL2NvbHVtbmlzdHMvZ3Vlc3Rjb2x1bW4vb3Bpbmlvbi1hYmR1bC1taW50eS1vdXItcm9sZS1pbi1leHBvc2luZy10aGUtYXBhcnRoZWlkLWdvdmVybm1lbnRzLW51Y2xlYXItYXJtYW1lbnRzLXByb2dyYW1tZS0yMDIzMDQyMQ",
+    "guidislink": false,
+    "published": "Fri, 21 Apr 2023 02:30:00 GMT",
+    "published_parsed": [
+      2023,
+      4,
+      21,
+      2,
+      30,
+      0,
+      4,
+      111,
+      0
+    ],
+    "summary": "<a href=\"https://news.google.com/rss/articles/CBMipQFodHRwczovL3d3dy5uZXdzMjQuY29tL25ld3MyNC9vcGluaW9ucy9jb2x1bW5pc3RzL2d1ZXN0Y29sdW1uL29waW5pb24tYWJkdWwtbWludHktb3VyLXJvbGUtaW4tZXhwb3NpbmctdGhlLWFwYXJ0aGVpZC1nb3Zlcm5tZW50cy1udWNsZWFyLWFybWFtZW50cy1wcm9ncmFtbWUtMjAyMzA0MjHSAakBaHR0cHM6Ly93d3cubmV3czI0LmNvbS9hbXAvbmV3czI0L29waW5pb25zL2NvbHVtbmlzdHMvZ3Vlc3Rjb2x1bW4vb3Bpbmlvbi1hYmR1bC1taW50eS1vdXItcm9sZS1pbi1leHBvc2luZy10aGUtYXBhcnRoZWlkLWdvdmVybm1lbnRzLW51Y2xlYXItYXJtYW1lbnRzLXByb2dyYW1tZS0yMDIzMDQyMQ?oc=5\" target=\"_blank\">OPINION | Abdul Minty: Our role in exposing the apartheid government’s nuclear armaments programme</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">News24</font>",
+    "summary_detail": {
+      "type": "text/html",
+      "language": null,
+      "base": "",
+      "value": "<a href=\"https://news.google.com/rss/articles/CBMipQFodHRwczovL3d3dy5uZXdzMjQuY29tL25ld3MyNC9vcGluaW9ucy9jb2x1bW5pc3RzL2d1ZXN0Y29sdW1uL29waW5pb24tYWJkdWwtbWludHktb3VyLXJvbGUtaW4tZXhwb3NpbmctdGhlLWFwYXJ0aGVpZC1nb3Zlcm5tZW50cy1udWNsZWFyLWFybWFtZW50cy1wcm9ncmFtbWUtMjAyMzA0MjHSAakBaHR0cHM6Ly93d3cubmV3czI0LmNvbS9hbXAvbmV3czI0L29waW5pb25zL2NvbHVtbmlzdHMvZ3Vlc3Rjb2x1bW4vb3Bpbmlvbi1hYmR1bC1taW50eS1vdXItcm9sZS1pbi1leHBvc2luZy10aGUtYXBhcnRoZWlkLWdvdmVybm1lbnRzLW51Y2xlYXItYXJtYW1lbnRzLXByb2dyYW1tZS0yMDIzMDQyMQ?oc=5\" target=\"_blank\">OPINION | Abdul Minty: Our role in exposing the apartheid government’s nuclear armaments programme</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">News24</font>"
+    },
+    "source": {
+      "href": "https://www.news24.com",
+      "title": "News24"
+    },
+    "sub_articles": []
+  },
+  {
+    "title": "Failed foreign policy threatens prosperity - The Citizen",
+    "title_detail": {
+      "type": "text/plain",
+      "language": null,
+      "base": "",
+      "value": "Failed foreign policy threatens prosperity - The Citizen"
+    },
+    "links": [
+      {
+        "rel": "alternate",
+        "type": "text/html",
+        "href": "https://news.google.com/rss/articles/CBMiX2h0dHBzOi8vd3d3LmNpdGl6ZW4uY28uemEvbmV3cy9vcGluaW9uL2ZhaWxlZC1mb3JlaWduLXBvbGljaWVzLXRocmVhdGVucy1wcm9zcGVyaXR5LWFwcmlsLTIwMjMv0gFfaHR0cHM6Ly9hbXAuY2l0aXplbi5jby56YS9uZXdzL29waW5pb24vZmFpbGVkLWZvcmVpZ24tcG9saWNpZXMtdGhyZWF0ZW5zLXByb3NwZXJpdHktYXByaWwtMjAyMy8?oc=5"
+      }
+    ],
+    "link": "https://news.google.com/rss/articles/CBMiX2h0dHBzOi8vd3d3LmNpdGl6ZW4uY28uemEvbmV3cy9vcGluaW9uL2ZhaWxlZC1mb3JlaWduLXBvbGljaWVzLXRocmVhdGVucy1wcm9zcGVyaXR5LWFwcmlsLTIwMjMv0gFfaHR0cHM6Ly9hbXAuY2l0aXplbi5jby56YS9uZXdzL29waW5pb24vZmFpbGVkLWZvcmVpZ24tcG9saWNpZXMtdGhyZWF0ZW5zLXByb3NwZXJpdHktYXByaWwtMjAyMy8?oc=5",
+    "id": "CBMiX2h0dHBzOi8vd3d3LmNpdGl6ZW4uY28uemEvbmV3cy9vcGluaW9uL2ZhaWxlZC1mb3JlaWduLXBvbGljaWVzLXRocmVhdGVucy1wcm9zcGVyaXR5LWFwcmlsLTIwMjMv0gFfaHR0cHM6Ly9hbXAuY2l0aXplbi5jby56YS9uZXdzL29waW5pb24vZmFpbGVkLWZvcmVpZ24tcG9saWNpZXMtdGhyZWF0ZW5zLXByb3NwZXJpdHktYXByaWwtMjAyMy8",
+    "guidislink": false,
+    "published": "Thu, 20 Apr 2023 20:44:57 GMT",
+    "published_parsed": [
+      2023,
+      4,
+      20,
+      20,
+      44,
+      57,
+      3,
+      110,
+      0
+    ],
+    "summary": "<a href=\"https://news.google.com/rss/articles/CBMiX2h0dHBzOi8vd3d3LmNpdGl6ZW4uY28uemEvbmV3cy9vcGluaW9uL2ZhaWxlZC1mb3JlaWduLXBvbGljaWVzLXRocmVhdGVucy1wcm9zcGVyaXR5LWFwcmlsLTIwMjMv0gFfaHR0cHM6Ly9hbXAuY2l0aXplbi5jby56YS9uZXdzL29waW5pb24vZmFpbGVkLWZvcmVpZ24tcG9saWNpZXMtdGhyZWF0ZW5zLXByb3NwZXJpdHktYXByaWwtMjAyMy8?oc=5\" target=\"_blank\">Failed foreign policy threatens prosperity</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Citizen</font>",
+    "summary_detail": {
+      "type": "text/html",
+      "language": null,
+      "base": "",
+      "value": "<a href=\"https://news.google.com/rss/articles/CBMiX2h0dHBzOi8vd3d3LmNpdGl6ZW4uY28uemEvbmV3cy9vcGluaW9uL2ZhaWxlZC1mb3JlaWduLXBvbGljaWVzLXRocmVhdGVucy1wcm9zcGVyaXR5LWFwcmlsLTIwMjMv0gFfaHR0cHM6Ly9hbXAuY2l0aXplbi5jby56YS9uZXdzL29waW5pb24vZmFpbGVkLWZvcmVpZ24tcG9saWNpZXMtdGhyZWF0ZW5zLXByb3NwZXJpdHktYXByaWwtMjAyMy8?oc=5\" target=\"_blank\">Failed foreign policy threatens prosperity</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Citizen</font>"
+    },
+    "source": {
+      "href": "https://www.citizen.co.za",
+      "title": "The Citizen"
+    },
+    "sub_articles": []
+  },
+  {
+    "title": "South Africa Has Regulated and Legalized Sports Betting - Nyasa Times",
+    "title_detail": {
+      "type": "text/plain",
+      "language": null,
+      "base": "",
+      "value": "South Africa Has Regulated and Legalized Sports Betting - Nyasa Times"
+    },
+    "links": [
+      {
+        "rel": "alternate",
+        "type": "text/html",
+        "href": "https://news.google.com/rss/articles/CBMiU2h0dHBzOi8vd3d3Lm55YXNhdGltZXMuY29tL3NvdXRoLWFmcmljYS1oYXMtcmVndWxhdGVkLWFuZC1sZWdhbGl6ZWQtc3BvcnRzLWJldHRpbmcv0gEA?oc=5"
+      }
+    ],
+    "link": "https://news.google.com/rss/articles/CBMiU2h0dHBzOi8vd3d3Lm55YXNhdGltZXMuY29tL3NvdXRoLWFmcmljYS1oYXMtcmVndWxhdGVkLWFuZC1sZWdhbGl6ZWQtc3BvcnRzLWJldHRpbmcv0gEA?oc=5",
+    "id": "CBMiU2h0dHBzOi8vd3d3Lm55YXNhdGltZXMuY29tL3NvdXRoLWFmcmljYS1oYXMtcmVndWxhdGVkLWFuZC1sZWdhbGl6ZWQtc3BvcnRzLWJldHRpbmcv0gEA",
+    "guidislink": false,
+    "published": "Thu, 20 Apr 2023 23:39:27 GMT",
+    "published_parsed": [
+      2023,
+      4,
+      20,
+      23,
+      39,
+      27,
+      3,
+      110,
+      0
+    ],
+    "summary": "<a href=\"https://news.google.com/rss/articles/CBMiU2h0dHBzOi8vd3d3Lm55YXNhdGltZXMuY29tL3NvdXRoLWFmcmljYS1oYXMtcmVndWxhdGVkLWFuZC1sZWdhbGl6ZWQtc3BvcnRzLWJldHRpbmcv0gEA?oc=5\" target=\"_blank\">South Africa Has Regulated and Legalized Sports Betting</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Nyasa Times</font>",
+    "summary_detail": {
+      "type": "text/html",
+      "language": null,
+      "base": "",
+      "value": "<a href=\"https://news.google.com/rss/articles/CBMiU2h0dHBzOi8vd3d3Lm55YXNhdGltZXMuY29tL3NvdXRoLWFmcmljYS1oYXMtcmVndWxhdGVkLWFuZC1sZWdhbGl6ZWQtc3BvcnRzLWJldHRpbmcv0gEA?oc=5\" target=\"_blank\">South Africa Has Regulated and Legalized Sports Betting</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Nyasa Times</font>"
+    },
+    "source": {
+      "href": "https://www.nyasatimes.com",
+      "title": "Nyasa Times"
+    },
+    "sub_articles": []
+  },
+  {
+    "title": "A 'terrorist' and SA: inside Hezbollah money laundering... - Daily Maverick",
+    "title_detail": {
+      "type": "text/plain",
+      "language": null,
+      "base": "",
+      "value": "A 'terrorist' and SA: inside Hezbollah money laundering... - Daily Maverick"
+    },
+    "links": [
+      {
+        "rel": "alternate",
+        "type": "text/html",
+        "href": "https://news.google.com/rss/articles/CBMiiQFodHRwczovL3d3dy5kYWlseW1hdmVyaWNrLmNvLnphL2FydGljbGUvMjAyMy0wNC0yMC1ibG9vZC1kaWFtb25kcy1iaWxsaW9ucy1hcnQtYW5kLXNvdXRoLWFmcmljYS1pbnNpZGUtYS1oZXpib2xsYWgtbW9uZXktbGF1bmRlcmluZy1nYW5nL9IBAA?oc=5"
+      }
+    ],
+    "link": "https://news.google.com/rss/articles/CBMiiQFodHRwczovL3d3dy5kYWlseW1hdmVyaWNrLmNvLnphL2FydGljbGUvMjAyMy0wNC0yMC1ibG9vZC1kaWFtb25kcy1iaWxsaW9ucy1hcnQtYW5kLXNvdXRoLWFmcmljYS1pbnNpZGUtYS1oZXpib2xsYWgtbW9uZXktbGF1bmRlcmluZy1nYW5nL9IBAA?oc=5",
+    "id": "CBMiiQFodHRwczovL3d3dy5kYWlseW1hdmVyaWNrLmNvLnphL2FydGljbGUvMjAyMy0wNC0yMC1ibG9vZC1kaWFtb25kcy1iaWxsaW9ucy1hcnQtYW5kLXNvdXRoLWFmcmljYS1pbnNpZGUtYS1oZXpib2xsYWgtbW9uZXktbGF1bmRlcmluZy1nYW5nL9IBAA",
+    "guidislink": false,
+    "published": "Thu, 20 Apr 2023 13:19:15 GMT",
+    "published_parsed": [
+      2023,
+      4,
+      20,
+      13,
+      19,
+      15,
+      3,
+      110,
+      0
+    ],
+    "summary": "<a href=\"https://news.google.com/rss/articles/CBMiiQFodHRwczovL3d3dy5kYWlseW1hdmVyaWNrLmNvLnphL2FydGljbGUvMjAyMy0wNC0yMC1ibG9vZC1kaWFtb25kcy1iaWxsaW9ucy1hcnQtYW5kLXNvdXRoLWFmcmljYS1pbnNpZGUtYS1oZXpib2xsYWgtbW9uZXktbGF1bmRlcmluZy1nYW5nL9IBAA?oc=5\" target=\"_blank\">A 'terrorist' and SA: inside Hezbollah money laundering...</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Daily Maverick</font>",
+    "summary_detail": {
+      "type": "text/html",
+      "language": null,
+      "base": "",
+      "value": "<a href=\"https://news.google.com/rss/articles/CBMiiQFodHRwczovL3d3dy5kYWlseW1hdmVyaWNrLmNvLnphL2FydGljbGUvMjAyMy0wNC0yMC1ibG9vZC1kaWFtb25kcy1iaWxsaW9ucy1hcnQtYW5kLXNvdXRoLWFmcmljYS1pbnNpZGUtYS1oZXpib2xsYWgtbW9uZXktbGF1bmRlcmluZy1nYW5nL9IBAA?oc=5\" target=\"_blank\">A 'terrorist' and SA: inside Hezbollah money laundering...</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Daily Maverick</font>"
+    },
+    "source": {
+      "href": "https://www.dailymaverick.co.za",
+      "title": "Daily Maverick"
+    },
+    "sub_articles": []
+  },
+  {
+    "title": "Russia says 'only method' US uses in int'l affairs is 'dictate, blackmail ... - Anadolu Agency | English",
+    "title_detail": {
+      "type": "text/plain",
+      "language": null,
+      "base": "",
+      "value": "Russia says 'only method' US uses in int'l affairs is 'dictate, blackmail ... - Anadolu Agency | English"
+    },
+    "links": [
+      {
+        "rel": "alternate",
+        "type": "text/html",
+        "href": "https://news.google.com/rss/articles/CBMifmh0dHBzOi8vd3d3LmFhLmNvbS50ci9lbi9ldXJvcGUvcnVzc2lhLXNheXMtb25seS1tZXRob2QtdXMtdXNlcy1pbi1pbnRsLWFmZmFpcnMtaXMtZGljdGF0ZS1ibGFja21haWwtdGhyZWF0cy1zYW5jdGlvbnMvMjg3Nzg3NNIBAA?oc=5"
+      }
+    ],
+    "link": "https://news.google.com/rss/articles/CBMifmh0dHBzOi8vd3d3LmFhLmNvbS50ci9lbi9ldXJvcGUvcnVzc2lhLXNheXMtb25seS1tZXRob2QtdXMtdXNlcy1pbi1pbnRsLWFmZmFpcnMtaXMtZGljdGF0ZS1ibGFja21haWwtdGhyZWF0cy1zYW5jdGlvbnMvMjg3Nzg3NNIBAA?oc=5",
+    "id": "CBMifmh0dHBzOi8vd3d3LmFhLmNvbS50ci9lbi9ldXJvcGUvcnVzc2lhLXNheXMtb25seS1tZXRob2QtdXMtdXNlcy1pbi1pbnRsLWFmZmFpcnMtaXMtZGljdGF0ZS1ibGFja21haWwtdGhyZWF0cy1zYW5jdGlvbnMvMjg3Nzg3NNIBAA",
+    "guidislink": false,
+    "published": "Thu, 20 Apr 2023 19:32:36 GMT",
+    "published_parsed": [
+      2023,
+      4,
+      20,
+      19,
+      32,
+      36,
+      3,
+      110,
+      0
+    ],
+    "summary": "<a href=\"https://news.google.com/rss/articles/CBMifmh0dHBzOi8vd3d3LmFhLmNvbS50ci9lbi9ldXJvcGUvcnVzc2lhLXNheXMtb25seS1tZXRob2QtdXMtdXNlcy1pbi1pbnRsLWFmZmFpcnMtaXMtZGljdGF0ZS1ibGFja21haWwtdGhyZWF0cy1zYW5jdGlvbnMvMjg3Nzg3NNIBAA?oc=5\" target=\"_blank\">Russia says 'only method' US uses in int'l affairs is 'dictate, blackmail ...</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Anadolu Agency | English</font>",
+    "summary_detail": {
+      "type": "text/html",
+      "language": null,
+      "base": "",
+      "value": "<a href=\"https://news.google.com/rss/articles/CBMifmh0dHBzOi8vd3d3LmFhLmNvbS50ci9lbi9ldXJvcGUvcnVzc2lhLXNheXMtb25seS1tZXRob2QtdXMtdXNlcy1pbi1pbnRsLWFmZmFpcnMtaXMtZGljdGF0ZS1ibGFja21haWwtdGhyZWF0cy1zYW5jdGlvbnMvMjg3Nzg3NNIBAA?oc=5\" target=\"_blank\">Russia says 'only method' US uses in int'l affairs is 'dictate, blackmail ...</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Anadolu Agency | English</font>"
+    },
+    "source": {
+      "href": "https://www.aa.com.tr",
+      "title": "Anadolu Agency | English"
+    },
+    "sub_articles": []
+  }
+] 
+  ```
+  </Tab>
+  <Tab>
+  **MIME Type:** `application/json`
+  ```json copy=false
+  {
+  "status": "failed",
+  "message": "Invalid API Access Token you can get API access by contacting info@rahnmonitor.co.za to order API Access"
+  }
+  ```
+  </Tab>
+  <Tab>
+  **MIME Type:** `application/json`
+  ```json copy=false
+  Internal Server Error
+  ```  
+  </Tab>
+</Tabs>
