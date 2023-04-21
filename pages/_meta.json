@@ -4,6 +4,10 @@
   "SearchQueryIndividual": "Search Query Individual",  
   "CheckBalance": "Check Balance",
   "ComputeBatchScanCosting": "Compute Batch Scan Costing",
+  "AdverseMedia": "Adverse Media",
+  "ReturnTop5InternationalSanctionsToday": "Return Top 5 International Sanctions Today",
+  "ReturnTop5LocalSanctions": "Return Top 5 Local Sanctions",
+
   "Playground": {
     "title": "Playground ↗",
     "type": "page",
